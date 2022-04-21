@@ -5,4 +5,3 @@ $dvipdf        = 'dvipdfmx %O -o %D %S';
 $pdf_mode      = 3; # use dvipdfmx
 
 # $pdf_previewer = "open -a Preview";
-

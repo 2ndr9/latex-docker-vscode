@@ -1,4 +1,6 @@
 {
+  "latex-workshop.docker.enabled": true,
+  "latex-workshop.docker.image.latex": "paperist/texlive-ja:latest",
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk",
