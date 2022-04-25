@@ -19,3 +19,5 @@ code .
 docker image(paperist/texlive-ja:latest)がダウンロードされていない初回ビルド時などは，ビルドに少し時間がかかる．
 
 vscodeのRemote - Containersを用いる必要はない．
+
+現時点では，texファイルと.latexmkrcファイルを同じディレクトリに置く必要がある
