@@ -1,25 +1,52 @@
 {
-  "latex-workshop.docker.enabled": true,
-  "latex-workshop.docker.image.latex": "paperist/texlive-ja:latest",
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "latexmk",
-      "tools": ["latexmk"]
-    }
-  ],
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
-      "command": "latexmk",
-      "args": ["-silent", "-outdir=%OUTDIR%", "%DOC%"]
-    }
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-v",
+        "%DIR%:/workdir",
+        "ghcr.io/being24/latex-docker",
+        "latexmk",
+        "/workdir/%DOCFILE_EXT%"
+      ]
+    },
+    {
+      "name": "diff",
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-v",
+        "%DIR%:/workdir",
+        "ghcr.io/being24/latex-docker",
+        "sh",
+        "/workdir/bin/diff.sh"
+      ]
+    },
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "compile",
+      "tools": [
+        "latexmk",
+      ]
+    },
+    {
+      "name": "create_diff",
+      "tools": [
+        "diff",
+      ]
+    },
   ],
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
-    "*.bbl",
+    // "*.bbl"
     "*.blg",
     "*.idx",
     "*.ind",
@@ -41,6 +68,17 @@
     "*.synctex.gz(busy)",
     "*.nav",
     "*.vrb",
-    "*.dvi"
-  ]
+    "*.dvi",
+    "*.Identifier"
+  ],
+  "latex-workshop.latexindent.path": "docker",
+  "latex-workshop.latexindent.args": [
+    "run",
+    "--rm",
+    "-v",
+    "%DIR%:/workdir",
+    "ghcr.io/being24/latex-docker",
+    "sh",
+    "/workdir/bin/linter.sh",
+  ],
 }
