@@ -1,0 +1,6 @@
+version: 1
+rules:
+  - expected: ．
+    pattern: /(?<=[^0-9a-zA-Z])[。｡ .]/g
+  - expected: ，
+    pattern: /(?<=[^0-9a-zA-Z])[、､ ,]/g

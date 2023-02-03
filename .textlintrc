@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "latex2e"
+  ],
+  "filters": {
+    "comments": true,
+    "allowlist": {
+      "allow": [
+        "github.com",
+        "github.com/github/"
+      ]
+    }
+  },
+  "rules": {
+    "preset-japanese": {
+      "no-doubled-conjunction": false,
+      "no-doubled-joshi": false,
+      "sentence-length": false
+    },
+    "prh": {
+      "rulePaths": [
+        "prh.yml"
+      ]
+    }
+  }
+}
