@@ -1,9 +1,9 @@
 {
   "name": "latex-docker-vscode",
   "scripts": {
-    "lint": "textlint *.tex",
-    "fix": "textlint --fix *.tex",
-    "lint-style": "textlint -f checkstyle */*.tex"
+    "lint": "textlint **/*.tex",
+    "fix": "textlint --fix **/*.tex",
+    "lint-style": "textlint -f checkstyle **/*.tex"
   },
   "dependencies": {
     "textlint": "^13.1.3",
